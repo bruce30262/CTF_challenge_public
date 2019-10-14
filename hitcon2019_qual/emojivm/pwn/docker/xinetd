@@ -1,0 +1,16 @@
+service emojivm_pwn
+{
+    disable = no
+    type = UNLISTED
+    wait = no
+    server = /opt/service/run.sh
+    socket_type = stream
+    protocol = tcp
+    user = root
+    port = 30262
+    flags = REUSE
+    per_source = 5
+    rlimit_cpu = 3
+    nice = 18
+}
+

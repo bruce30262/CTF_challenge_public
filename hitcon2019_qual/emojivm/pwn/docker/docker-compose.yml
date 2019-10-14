@@ -1,0 +1,17 @@
+version: '2.2'
+services:
+    emojivm_pwn:
+        build: ./
+        volumes:
+            - ./tmp:/tmp:ro
+            - ./share:/home/emojivm:ro
+            - ./xinetd:/etc/xinetd.d/emojivm_pwn:ro
+        ports:
+            - "30262:30262"
+        expose:
+            - "30262"
+        cpu_percent: 50
+        cpus: 0.5
+        mem_limit: 512m
+        mem_reservation: 256m
+

@@ -1,0 +1,15 @@
+version: '2.2'
+services:
+    emojivm_misc:
+        build: ./
+        volumes:
+            - ./xinetd:/etc/xinetd.d/emojivm_misc:ro
+        ports:
+            - "30261:30261"
+        expose:
+            - "30261"
+        cpu_percent: 50
+        cpus: 0.5
+        mem_limit: 512m
+        mem_reservation: 256m
+

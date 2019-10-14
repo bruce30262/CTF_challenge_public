@@ -1,0 +1,16 @@
+service emojivm_misc
+{
+    disable = no
+    type = UNLISTED
+    wait = no
+    server = /opt/run.sh
+    socket_type = stream
+    protocol = tcp
+    user = ctf
+    port = 30261
+    flags = REUSE
+    per_source = 5
+    rlimit_cpu = 3
+    nice = 18
+}
+
