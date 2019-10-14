@@ -1,0 +1,5 @@
+An interesting challenge while developing the assembler is that I have to think of a way to assemble the branch instruction. To jump to a specific location in EmojiVM, you'll have to push the location number to the stack then use 🚀(branch)/🈶(branch true)/🈚(branch false) to jump to that location. However it's not easy to implement that, since the instruction number ( amount of emojis ) will varied according to the location number.  
+  
+In the end I was able to solve it by assuming that "It will always spend 45 emojis while pushing the location number to the stack". I assumed that the code location in a emoji file will never exceed 99999, and to push 99999 ( the largest number ) to the VM stack, it'll spent about 45 emojis. So when the assembler tries to assemble a branch instruction, it will first generate 45 🈳 (NOP) emoji and record the label's code position. After that, it'll overwrite those NOPs with the emoji code which will push the code location number to the VM stack. 
+
+Of course this solution won't work if the emoji file has more than 1000000 emojis. However this is enough for us to solve the challenges.
