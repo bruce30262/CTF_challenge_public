@@ -1,4 +1,4 @@
-# compiler.py chal.asm chal.evm
+# too/assembler.py chal.asm chal.evm
 nop
 nop
 nop

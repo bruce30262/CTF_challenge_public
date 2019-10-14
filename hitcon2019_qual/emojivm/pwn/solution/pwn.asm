@@ -1,4 +1,4 @@
-# tool/compiler.py pwn.asm pwn.evm
+# tool/assembler.py pwn.asm pwn.evm
 # make libc appear in heap
 pushnum 1032
 new

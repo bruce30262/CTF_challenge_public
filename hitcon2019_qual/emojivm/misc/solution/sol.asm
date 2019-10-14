@@ -1,4 +1,4 @@
-# tool/compiler.py sol.asm sol.evm
+# tool/assembler.py sol.asm sol.evm
 push 10
 new
 push 5
