@@ -13,7 +13,7 @@ So I started implementing my own emoji VM. During the development I also realize
 * Solved : 77  
 > A simple VM that takes emojis as input! Try figure out the secret!  
 
-The idea of the reverse challenge popped into my mind while I was defining the emoji code. I thought it will be interesting to reverse an "emoji program". So after I finished developing the VM, I wrote a simple python crackme and converted it into an `evm` file. You can check the source code in the `rev` folder.  
+The idea of the reverse challenge popped into my mind while I was defining the emoji code. I thought it will be interesting to reverse an "emoji program". So after I finished developing the VM, I wrote a simple [python crackme](https://github.com/bruce30262/CTF_challenge_public/blob/master/hitcon2019_qual/emojivm/rev/chal.py) and converted it into an `evm` file. You can check the source code in the `rev` folder.  
 
 The crackme is pretty simple, once it read the user's input ( secret ), it'll:  
 1. Check the secret's length  
@@ -35,11 +35,11 @@ The crackme is pretty simple, once it read the user's input ( secret ), it'll:
 > Make sure you send exact N bytes after you input N as your file size.  
 > Otherwise the server might close the connection before it print out the flag !
 
-I had lot of fun while developing the asm version of the reverse challenge. After developing an assembler for the EmojiVM, I started to write some assembly for the reverse challenge. It took me about 3 hours to complete the whole stuff. This made me think that it might be challenging ( and fun ! ) to develop an emoji program:  
+I had lot of fun while developing the asm version of the reverse challenge. After developing an [assembler](https://github.com/bruce30262/CTF_challenge_public/blob/master/hitcon2019_qual/emojivm/tool/assembler.py) for the EmojiVM, I started to write some assembly for the reverse challenge. It took me about 3 hours to complete the whole stuff. This made me think that it might be challenging ( and fun ! ) to develop an emoji program:  
 * You'll have to write an assembler  
 * You'll have to write an emoji program with your customized assembly  
 
-That's the moment I decided to create another challenge: write a 9x9 multiplication table with emoji ! The reason why I choose the 9x9 multiplication table is because the challenger must use some branch instructions to complete the task, and writing an emoji assembler with branch instruction is not that easy. You can check the readme in tool/ for more details.
+That's the moment I decided to create another challenge: write a 9x9 multiplication table with emoji ! The reason why I choose the 9x9 multiplication table is because the challenger must use some branch instructions to complete the task, and writing an emoji assembler with branch instruction is not that easy. You can check the [readme](https://github.com/bruce30262/CTF_challenge_public/blob/master/hitcon2019_qual/emojivm/tool/README.md) in tool/ for more details.
 
 Another challenge while developing this task is blocking the un-intended solution. For example, a challenger can just use a simple read/write combo to print out the whole table, which is way too easy to achieve, that's why I add a filter to block the read instruction. Also since there are vulnerabilities in the binary, I've added some seccomp filter to prevent challenger solving the task by pwning the service. 
 
