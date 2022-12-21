@@ -1,0 +1,17 @@
+services:
+    hole:
+        build: ./
+        volumes:
+            - ./tmp:/tmp:ro
+            - ./share:/home/ctf:ro
+            - ./xinetd:/etc/xinetd.d/hole:ro
+        ports:
+            - "30262:30262"
+        expose:
+            - "30262"
+        cpu_percent: 50
+        cpus: 0.5
+        mem_limit: 512m
+        mem_reservation: 256m
+        restart: always
+

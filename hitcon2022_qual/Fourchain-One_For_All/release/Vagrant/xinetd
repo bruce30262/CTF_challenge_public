@@ -1,0 +1,16 @@
+service fullchain
+{
+    disable = no
+    type = UNLISTED
+    wait = no
+    server = /home/vagrant/run_service.sh
+    socket_type = stream
+    protocol = tcp
+    user = vagrant
+    port = 31337
+    flags = REUSE IPv4
+    per_source = 5
+    rlimit_cpu = 2
+    nice = 18
+}
+

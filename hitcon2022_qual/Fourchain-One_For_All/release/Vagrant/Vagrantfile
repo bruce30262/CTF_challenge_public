@@ -1,0 +1,22 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "fullchain.box"
+  config.vm.provider :virtualbox do |v|
+    v.memory = 4096
+    v.cpus = 2
+  end
+
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.vm.network "forwarded_port", guest: 31337, host: 31337
+
+  config.vm.provision "file", source: "chromium.tar.xz", destination: "chromium.tar.xz"
+  config.vm.provision "file", source: "run_service.sh", destination: "run_service.sh" 
+  config.vm.provision "file", source: "service.py", destination: "service.py" 
+  config.vm.provision "file", source: "visit.sh", destination: "visit.sh" 
+  config.vm.provision "file", source: "xinetd", destination: "/tmp/fullchain" 
+  config.vm.provision "shell", inline: <<-SHELL
+    tar xf chromium.tar.xz
+    mv /tmp/fullchain /etc/xinetd.d/fullchain
+    /etc/init.d/xinetd restart
+    rm /etc/sudoers.d/vagrant
+  SHELL
+end

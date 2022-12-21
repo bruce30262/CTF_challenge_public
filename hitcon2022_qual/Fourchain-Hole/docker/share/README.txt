@@ -1,0 +1,1 @@
+d8 and snapshot_blob.bin should be placed here.

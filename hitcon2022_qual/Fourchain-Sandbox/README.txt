@@ -1,0 +1,2 @@
+chromium.tar.xz & mojo_bindings.tar.xz aren't upload to this repo. Download them from https://github.com/hitconctf/ctf2022.hitcon.org/releases/  
+Put chromium.tar.xz under the chrome_docker directory, and mojo_bindings.tar.xz under the service directory if you want to setup the service.
