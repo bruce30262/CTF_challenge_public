@@ -1,0 +1,16 @@
+services:
+    calc:
+        image: calc
+        container_name: calc
+        build:
+          context: .
+          network: host
+        ports:
+            - "31337:31337"
+        expose:
+            - "31337"
+        cpus: 1
+        mem_limit: 1024m
+        mem_reservation: 512m
+        restart: always
+
